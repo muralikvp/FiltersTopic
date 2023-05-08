@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Starter.Filters;
 
 namespace Starter.Controllers
 {
@@ -7,6 +8,7 @@ namespace Starter.Controllers
     public class WeatherForecastController : ControllerBase
     {
 
+        [AsyncFilter("DisplayTraining")]
         //[HttpGet("Display")]
         [HttpGet]
         [Route("Display")]
@@ -15,7 +17,7 @@ namespace Starter.Controllers
             return "Dotnet Core Training";
         }
 
-        //[HttpGet("Display")]
+        [SampleActionFilterAttribute("MessageGet")]
         [HttpGet]
         [Route("GetMessage")]
         public string GetMessage(string Training, string Institute="Hope Tutors")
@@ -23,6 +25,7 @@ namespace Starter.Controllers
             return Institute +" : " + Training;
         }
 
+        [SampleActionFilterAttribute("MessagePost")]
         [HttpPost]
         [Route("PostWeather")]
         public int PostWeather(WeatherForecast weather)

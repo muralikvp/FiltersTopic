@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Starter.Filters;
 using System;
 
 namespace Starter.Controllers
@@ -25,6 +26,7 @@ namespace Starter.Controllers
             return "Update Student";
         }
 
+        [AsyncFilter("Delete Student")]
         [HttpGet]
         [Route("DeleteStudent")]
         public string DeleteStudent()
