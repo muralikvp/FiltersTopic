@@ -8,7 +8,9 @@ namespace Starter.Controllers
     public class WeatherForecastController : ControllerBase
     {
 
-        [AsyncFilter("DisplayTraining")]
+      //  [ResultEx]
+       // [TypeFilter(typeof(ResourceEx), Arguments = new object[] { "Result" })]
+      //  [AsyncFilter("DisplayTraining")]
         //[HttpGet("Display")]
         [HttpGet]
         [Route("Display")]

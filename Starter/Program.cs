@@ -1,11 +1,17 @@
+using Microsoft.Extensions.Options;
 using Starter.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddSingleton<ResultEx>();
+builder.Services.AddSingleton<ResourceEx>();
+
 builder.Services.AddControllers(o => {
-//    o.Filters.Add(new SampleActionFilter());
+    //    o.Filters.Add(new SampleActionFilter());
+    o.Filters.Add(new ResultEx());
+    o.Filters.AddService<ResourceEx>();
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
